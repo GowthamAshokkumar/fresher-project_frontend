@@ -10,25 +10,31 @@ export default Route.extend({
 
   actions: {
     login: function(credentials) {
-    console.log(credentials);
       this.get('session').login(credentials)
         .then(bind(this, 'authenticationDidSucceed'),
               bind(this, 'authenticationDidFail'));
     }
   },
 
-  authenticationDidSucceed: function() {
+  authenticationDidSucceed: function(res) {
+  	
     var transition = this.get('controller.attemptedTransition');
     if (transition) {
       transition.retry();
     } else {
-      this.transitionTo('home');
+      if(res.user.types=="owner"){
+       this.transitionTo('accomadation');
+      }else{
+      	this.transitionTo('home');
+      }
+
     }
   },
 
   authenticationDidFail: function(response) {
     var message = response.responseJSON.error;
     this.set('controller.error', message);
+    alert("invalid credentials");
   },
 
   resetController: function(controller) {

@@ -3,6 +3,8 @@ import { computed } from '@ember/object'
 import { Promise } from 'rsvp'
 import $ from 'jquery';
 import Service from '@ember/service'
+
+
 var ajax = $.ajax;
 var ajaxPrefilter = $.ajaxPrefilter;
 
@@ -38,6 +40,8 @@ export default Service.extend({
     ajaxPrefilter(function(options, originalOptions, jqXHR) {
       return jqXHR.setRequestHeader('X-CSRF-Token', token);
     });
+    
+    return response;
   },
 
   logoutDidSucceed: function() {

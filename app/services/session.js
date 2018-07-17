@@ -11,7 +11,9 @@ var ajaxPrefilter = $.ajaxPrefilter;
 export default Service.extend({
   sessionData: null,
   isAuthenticated: computed.alias('sessionData'),
-
+  getData: function(){
+    return this.get('sessionData');
+  },
   login: function(credentials) {
     return ajax({type: 'POST', url: 'login', data: credentials})
       .then(bind(this, 'authenticationDidSucceed'));

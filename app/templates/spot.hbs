@@ -1,0 +1,13 @@
+<h1>Accomadations</h1>
+<table class="table">
+<tr>
+ <th>Name</th>
+ <th>Price</th>
+</tr>
+{{#each model as |accom|}}
+<tr >
+  <td>{{accom.name}}</td>
+  <td>{{accom.price}}</td>
+  </tr>
+{{/each}}
+ </table>

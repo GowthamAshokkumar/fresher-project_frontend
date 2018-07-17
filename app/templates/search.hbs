@@ -1,0 +1,13 @@
+<h1>Spots</h1>
+<table class="table">
+<tr>
+ <th>Spot</th>
+ <th>Location</th>
+</tr>
+{{#each model as |location|}}
+<tr {{ action "locationAction" location}}>
+  <td>{{location.spot}}</td>
+  <td>{{location.city}}</td>
+  </tr>
+{{/each}}
+ </table>

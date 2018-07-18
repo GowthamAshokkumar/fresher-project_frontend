@@ -9,7 +9,13 @@ export default Route.extend({
 		if(!this.get("session").getData()){
           this.transitionTo('login')
         }
-      return this.store.peekAll('location').filterBy('country', params.country);
+        var result=this.store.peekAll('location').filterBy('country', params.country);
+        console.log(result);
+        if(result.get('length')==0){
+        	alert("result is empty")
+        	this.transitionTo('home');
+        }
+      return result
 	},
 	actions:{
 		locationAction:function(location){

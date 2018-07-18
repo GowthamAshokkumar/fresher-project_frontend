@@ -5,6 +5,9 @@ import Route from '@ember/routing/route';
 export default Route.extend({
 
 	 model: function() {
+    if(this.get("session").getData()){
+        this.get('session').logout();   
+     }
     return {};
   },
 

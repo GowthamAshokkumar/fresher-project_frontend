@@ -1,13 +1,20 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark nav justify-content-end" >
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+           <button {{action "logout"}} class="btn btn-default pull-right">Log out</button>
+    </li>
+  </ul>
+</nav>
 <h1>Accomadations</h1>
 <table class="table">
 <tr>
  <th>Name</th>
- <th>Price</th>
+ <th>Price (per day)</th>
 </tr>
 {{#each model as |accom|}}
 <tr >
   <td>{{accom.name}}</td>
-  <td>{{accom.price}}</td>
+  <td>{{accom.price}} ₹</td>
   </tr>
 {{/each}}
  </table>

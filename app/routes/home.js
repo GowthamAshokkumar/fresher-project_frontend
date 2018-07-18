@@ -5,11 +5,11 @@ export default Route.extend({
     if(!this.get("session").getData()){
        this.transitionTo('login')
     }
+    this.store.findAll('location');	
     return {};
   },
    actions: {
     search: function(m) {
-     this.store.findAll('location');	
      this.transitionTo('search', { queryParams: { country: m.country }});
     }
   }

@@ -10,6 +10,6 @@ export default Route.extend({
 		if(!this.get("session").getData()){
           this.transitionTo('login')
         }
-      return this.store.findAll('accomadation', {id:params.id});
+      return this.store.query('accomadation', {id:params.id});
 	},
 });

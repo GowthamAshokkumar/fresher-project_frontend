@@ -1,49 +1,57 @@
 <html>
 
 <div class="container">
+  <div class="testbox">
+
 <h1> registration form </h1>
 <form class="form-horizontal">  
   <div class="form-group">
-    <label for="firstname" class="col-md-2 control-label">Name</label>
+    <label for="firstname" class="col-md-2 control-label">firstname</label>
     <div class="col-md-5">
-      {{input value=firstname class="form-control"}}
+      {{input class="inputtext" value=firstname class="form-control"}}
     </div>
   </div>
   <div class="form-group">
       <label for="lastname" class=" col-md-2 control-label">lastname</label>
       <div class="col-md-5">
-        {{input value=lastname class="form-control"}}
+        {{input class="inputtext" value=lastname class="form-control"}}
       </div>
   </div>
   <div class="form-group">
       <label for="email" class=" col-md-2 control-label">email</label>
       <div class="col-md-5">
-        {{input value=email class="form-control"}}
+        {{input  class="inputtext" value=email class="form-control"}}
       </div>
   </div>
   <div class="form-group">
       <label for="password" class=" col-md-2 control-label">password</label>
       <div class="col-md-5">
-        {{input value=password class="form-control"}}
+        {{input type="password" class="inputtext" value=password class="form-control"}}
       </div>
   </div>
   <div class="form-group">
       <label for="password_confirmation" class=" col-md-2 control-label">password_confirmation</label>
       <div class="col-md-5">
-        {{input value=password_confirmation class="form-control"}}
+        {{input type ="password" class="inputtext" value=password_confirmation class="form-control"}}
       </div>
   </div>
   <div class="form-group">
       <label for="types" class=" col-md-2 control-label">types</label>
       <div class="col-md-5">
-        {{input value=types class="form-control"}}
+        <select onchange={{action "setSelection" value="target.value"}}>
+          <option value="tourist">tourist</option>
+           <option value="owner">owner</option>
+        </select>
       </div>
   </div>
   <div class="form-group">
    <div class="col-sm-offset-2 col-sm-10">
-     <button {{action "createThing" }} class="btn btn-sm btn-primary">Submit</button>
+     <button  {{action "createThing" }} class="btn btn-sm btn-primary">Submit</button>
    </div>
  </div>
 </form>  
 </div>
+</div>
+
+
 </html>

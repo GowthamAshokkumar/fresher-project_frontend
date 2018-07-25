@@ -1,16 +1,22 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
+	
 	model: function() {
     if(!this.get("session").getData()){
        this.transitionTo('login')
     }
-    this.store.findAll('location');	
-    return {};
+   
+    
+    return  this.store.query('location',{'group':'country'});
   },
    actions: {
-    search: function(m) {
-     this.transitionTo('search', { queryParams: { country: m.country }});
+    
+    logout: function() {
+      this.get('session').logout();
+      alert("successfully logout");
+      this.transitionTo('login');
+
     }
   }
 

@@ -9,20 +9,26 @@ export default Route.extend({
 		if(!this.get("session").getData()){
           this.transitionTo('login')
         }
-        var result=this.store.peekAll('location').filterBy('country', params.country);
-        console.log(result);
-        if(result.get('length')==0){
-        	alert("result is empty")
-        	this.transitionTo('home');
-        }
+        var result=this.store.query('location',{country: params.country,group: "city"});
+        // if(result.get('length')==0){
+        // 	alert("result is empty")
+        // 	this.transitionTo('home');
+        // }
       return result
 	},
 	actions:{
 		locationAction:function(location){
-			console.log(location.id);
-			this.store.findAll('location');	
+			localStorage.setItem('id',location.id);
+			
 		    this.transitionTo('spot',{ queryParams: { id: location.id }});
 
-		}
-	}
+		},
+		logout: function() {
+         this.get('session').logout();
+         alert("successfully logout");
+         this.transitionTo('login');
+
+       }
+    }
 });
+

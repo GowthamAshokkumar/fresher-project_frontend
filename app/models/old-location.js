@@ -8,5 +8,4 @@ export default DS.Model.extend({
     spot: attr('string'),
     duration: attr('string'),
     image_src: attr('string')
-    
 });

@@ -3,7 +3,7 @@ import Controller from '@ember/controller';
 
 
 export default Controller.extend({
-
+  
 	actions:{
      createThing: function(){
 
@@ -16,6 +16,9 @@ export default Controller.extend({
        });
        
 
-     }
+     },
+     setSelection: function(selected) {
+      this.set('types', selected)
+    },
    }
 });

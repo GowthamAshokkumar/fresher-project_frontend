@@ -1,20 +1,27 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark nav justify-content-end" >
-  <ul class="navbar-nav">
-    <li class="nav-item active">
-           <button {{action "logout"}} class="btn btn-default pull-right">Log out</button>
-    </li>
-  </ul>
-</nav>
+<ul>
+<li {{ action "logout"}}>log out </li>
+
+</ul>
+<div class="container">
 <h1>Spots</h1>
-<table class="table">
-<tr>
- <th>Spot</th>
- <th>Location</th>
-</tr>
-{{#each model as |location|}}
-<tr {{ action "locationAction" location}}>
-  <td>{{location.spot}}</td>
-  <td>{{location.city}}</td>
-  </tr>
-{{/each}}
- </table>
+</div>
+<div class="container">
+  <div class="container-fluid">
+          <div class="row">
+        {{#each model as |location|}}
+            <div class="col-lg-3">
+            <center class="cen">
+              <div class="thumbnail" {{ action "locationAction" location}}>
+                 <img id="myBtn" src="{{location.image_src}}" />
+                  
+               <div class="caption">
+              {{location.city}}
+              </div>
+              </div>
+             </center> 
+            </div>
+           {{/each}}
+           
+     </div>
+   </div>
+</div>

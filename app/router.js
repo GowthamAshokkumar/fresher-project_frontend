@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('home');
   this.route('search');
   this.route('spot');
+  this.route('itinerary');
 });
 
 

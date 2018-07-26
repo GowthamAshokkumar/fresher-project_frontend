@@ -1,0 +1,51 @@
+<ul>
+<li {{ action "logout"}}>log out </li>
+
+</ul>
+<h1>Itinerary for selected location</h1>
+
+<table class="table">
+
+{{#each days as |day|}}
+{{#if day.flag}}
+   <h1>Day {{day.day}}</h1>
+   <tr>
+     <th>Name</th>
+     <th>Duration</th>
+   </tr>
+{{/if}}
+<tr >
+   
+  <td>{{day.location.spot}}</td>
+  <td>
+    {{#if day.isfullday}}
+        9 AM to 6 PM
+    {{else}}
+        {{#if day.flag}}
+         9 AM to 1 PM
+       {{else}}
+         2 PM to 6 PM
+       {{/if}}
+    {{/if}}
+  </td>
+  
+  </tr>
+{{/each}}
+ </table>
+
+ <div >
+       Choose Accommadation :
+       <select onchange={{action "setAccomadation" value="target.value"}}>
+                    <option value="">Choose accommadation--</option>
+                {{#each accomadations as |accomadation|}}
+                    <option value="{{accomadation.id}}">{{accomadation.name}} {{accomadation.price}}rs/day</option>
+                {{/each}}
+       </select>
+           
+ </div>
+<div align="center">
+
+<button style="text-align:center" {{action "saveAction"}} class="btn btn-sm btn-success">save Trip</button>
+</div>
+
+

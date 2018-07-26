@@ -1,23 +1,31 @@
 import Ember from 'ember';
 export default Ember.Controller.extend({
-	    duration:null,
-	    locations:null,
-	    new_locations:null,
-		init: function(){
-			var id=localStorage.getItem("id");
-			this.set('duration',localStorage.getItem('duration'));
-			var loc=this.store.query('old_location', {id: id}).then(
-			(loc)=>{
-                this.set('locations',loc);
-                var n=this.store.query('new_location', {id:  id})
-			    this.set('new_locations',n);
-			},()=>{
+	    // duration:Ember.computed(function(){
+     //         return localStorage.getItem('duration');
+	    // }),
+	    // locations:Ember.computed(function(){
+     //         var id=localStorage.getItem("id");
+     //         return this.store.query('old_location', {id: id});
+	    // }),
+	    // new_locations:Ember.computed(function(){
+     //         var id=localStorage.getItem("id");
+     //         return this.store.query('new_location', {id:  id});
+	    // }),
+	    
+		// init: function(){
+		// 	var id=localStorage.getItem("id");
+		// 	this.set('duration',localStorage.getItem('duration'));
+		// 	var loc=this.store.query('old_location', {id: id}).then(
+		// 	(loc)=>{
+  //               this.set('locations',loc);
+  //               var n=this.store.query('new_location', {id:  id})
+		// 	    this.set('new_locations',n);
+		// 	},()=>{
 
-			});
-			
+		// 	});
 			 
-			return {};
-		},
+		// 	return {};
+		// },
 		actions:{
            removeLocation: function(loc){
            	 var duration=this.get('duration');
@@ -61,6 +69,28 @@ export default Ember.Controller.extend({
                this.set('duration',(duration+0.5));
 			}
 			
-           }
-		}
+           },
+           nextAction:function(){
+           	 var duration=this.get('duration');
+           	 if(duration==0){
+                this.transitionToRoute('itinerary');
+           	 }else{
+           	 	alert('choose spots for '+duration+' days');
+           	 }
+           },
+           
+		},
+		// willTransition: function(transition) {
+  //            var id=localStorage.getItem("id");
+		// 	 this.set('duration',localStorage.getItem('duration'));
+		// 	 var loc=this.store.query('old_location', {id: id}).then(
+		// 	 (loc)=>{
+  //               this.set('locations',loc);
+  //               var n=this.store.query('new_location', {id:  id})
+		// 	    this.set('new_locations',n);
+		// 	 },()=>{
+
+		// 	 });
+			 
+  //          },
 });

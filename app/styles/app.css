@@ -526,25 +526,18 @@ iframe {
     opacity: 1;
   }
 }
-table
-{
-  border-collapse: collapse;
-  width:100%;
-}
+
 th
 {
   text-align: left;
-  padding: 5px;
+  padding: 12px;
 }
 td
 {
   text-align :left;
   padding  :5px;
 }
-tr:nth-child(even) 
-{
-  background-color: #f2f2f2;
-}
+
 
   .cen{
       margin-bottom: 5px;
@@ -617,7 +610,10 @@ img
   width: 200px
 }
 
-
+.itinerarystyle
+{
+  background-image: url('http://www.inspirations-travel.co.za/images/content/03_04_52-4232_banner.jpg');
+}
 
 .testbox {
   margin: 20px auto;

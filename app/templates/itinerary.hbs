@@ -2,39 +2,45 @@
 <li {{ action "logout"}}>log out </li>
 
 </ul>
-<h1>Itinerary for selected location</h1>
 
-<table class="table">
+ <div class="container-login100" style="background-image: url('http://www.inspirations-travel.co.za/images/content/03_04_52-4232_banner.jpg');">
+
+<h3 style="font-family:fantasy;text-align:left;margin:12px"><b>Itinerary</b></h3>
+<br>
+<table style="border:1px solid black;border-collapse:collapse;margin-left:15%;width:70%" >
 
 {{#each days as |day|}}
 {{#if day.flag}}
-   <h1>Day {{day.day}}</h1>
-   <tr>
-     <th>Name</th>
-     <th>Duration</th>
-   </tr>
-{{/if}}
-<tr >
+   <tr style="font-family:serif;text-align:left; border:1px solid black;background:#40e0d0;color:white"><th><b>       Day {{day.day}}</b></th><th>            </th></tr> 
    
-  <td>{{day.location.spot}}</td>
+{{/if}}
+<tr style="color:black">
   <td>
     {{#if day.isfullday}}
-        9 AM to 6 PM
+       <i> <b>Full day </b></i>
     {{else}}
         {{#if day.flag}}
-         9 AM to 1 PM
+        <i> <b>Morning to noon </b></i>
        {{else}}
-         2 PM to 6 PM
+        <i> <b>Afternoon to evening </b></i>
        {{/if}}
     {{/if}}
   </td>
-  
+   <td>         </td>
   </tr>
+<tr style="">
+   
+  <td>{{day.location.spot}}</td>
+   <td>                     </td>
+  </tr>
+  
+
+ 
 {{/each}}
  </table>
-
- <div >
-       Choose Accommadation :
+<br>
+ <div style="margin-left:10px;font-family:serif;font-size:16pt">
+     <b>  Choose Accommadation :</b>
        <select onchange={{action "setAccomadation" value="target.value"}}>
                     <option value="">Choose accommadation--</option>
                 {{#each accomadations as |accomadation|}}
@@ -43,9 +49,9 @@
        </select>
            
  </div>
+ </div>
 <div align="center">
-
-<button style="text-align:center" {{action "saveAction"}} class="btn btn-sm btn-success">save Trip</button>
+<button style="text-align:center" {{action "saveAction"}} class="btn btn-lg btn-success">Save Trip</button>
 </div>
 
 

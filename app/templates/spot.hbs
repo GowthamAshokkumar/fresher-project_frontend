@@ -1,36 +1,63 @@
-<ul>
+<ul position:fixed>
 <li {{ action "logout"}}>log out </li>
 
 </ul>
-<h1>Spots</h1>
-<h1>Remaining Duration: {{duration}} days</h1>
-<table class="table">
-<tr>
- <th>Name</th>
- <th>Duration</th>
-</tr>
-{{#each locations as |location|}}
-<tr {{action "removeLocation" location}}>
-  <td>{{location.spot}}</td>
-  <td>{{location.duration}}</td>
-  </tr>
-{{/each}}
- </table>
 
-<h1>Selected Spots</h1>
-<table class="table">
-<tr>
- <th>Name</th>
- <th>Duration</th>
-</tr>
-{{#each new_locations as |location|}}
-<tr {{action "addLocation" location}}>
-  <td>{{location.spot}}</td>
-  <td>{{location.duration}}</td>
-  </tr>
-{{/each}}
- 
- </table>
+
+<h3 style="font-family:Comic Sans MS;text-align:center;margin:auto">Selected spots </h3><br>
+<br>
+ <div class="container">
+</div>
+<div class="container">
+  <div class="container-fluid">
+          <div class="row">
+        {{#each new_locations as |location|}}
+            <div class="col-lg-3">
+            <center class="cen">
+              <div class="thumbnail" {{ action "addLocation" location}}>
+                 <img id="myBtn" src="{{location.image_src}}" />
+                  
+               <div class="caption">
+            <b><i>{{location.spot}}</i></b><br>
+             <b>Required time:</b> <i>{{location.duration}}</i>
+              </div>
+              </div>
+             </center> 
+            </div>
+           {{/each}}
+           
+     </div>
+   </div>
+</div>
+
+<br>
+<h3 style="font-family:Comic Sans MS;text-align:center;margin:auto">Choose spots you would like to visit </h3><br>
+<h4 style="font-family:Comic Sans MS;text-align:left;margin-left:12px">Remaining Duration: <strong>{{duration}}</strong> days</h4>
+
+<br>
+<div class="container">
+</div>
+<div class="container">
+  <div class="container-fluid">
+          <div class="row">
+        {{#each locations as |location|}}
+            <div class="col-lg-3">
+            <center class="cen">
+              <div class="thumbnail" {{ action "removeLocation" location}}>
+                 <img id="myBtn" src="{{location.image_src}}" />
+                  
+               <div class="caption">
+              <b><i>{{location.spot}}</i></b><br>
+             <b>Required time:</b> <i>{{location.duration}}</i>
+              </div>
+              </div>
+             </center> 
+            </div>
+           {{/each}}
+           
+     </div>
+   </div>
+</div>
 <div align="center">
-<button style="text-align:center" {{action "nextAction"}} class="btn btn-sm btn-success">Next</button>
+<button style="text-align:center" {{action "nextAction"}} class="btn btn-lg btn-success">Next</button>
 </div>
